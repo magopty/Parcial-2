@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <!-- Encabezado estilo Casio -->
+        <div class="header">
+            <div class="logo">CASIO</div>
+            <div class="model">fx-991ES PLUS</div>
+        </div>
+        
+        <!-- Pantalla de resultados -->
+        <div class="display" id="display">0</div>
+        
+        <!-- Controles de la calculadora -->
+        <div class="controls">
+            <!-- Panel de funciones -->
+            <div class="function-panel">
+                <div class="function-title">FUNCIONES</div>
+                
+                <!-- Función 1: Suma de tres valores -->
+                <div class="function-inputs">
+                    <div class="input-group">
+                        <label>1. Suma de tres valores constantes</label>
+                        <button onclick="sumarTresValores()">Calcular Suma</button>
+                    </div>
+                    
+                    <!-- Función 2: Cuadrado de un número -->
+                    <div class="input-group">
+                        <label>2. Cuadrado de un número</label>
+                        <input type="number" id="numeroCuadrado" placeholder="Ingrese un número">
+                        <button onclick="calcularCuadrado()">Calcular Cuadrado</button>
+                    </div>
+                    
+                    <!-- Función 3: Promedio de calificaciones -->
+                    <div class="input-group">
+                        <label>3. Promedio de calificaciones</label>
+                        <input type="text" id="nombreEstudiante" placeholder="Nombre del estudiante">
+                        <input type="number" id="calificacion1" placeholder="Calificación 1" step="0.01">
+                        <input type="number" id="calificacion2" placeholder="Calificación 2" step="0.01">
+                        <input type="number" id="calificacion3" placeholder="Calificación 3" step="0.01">
+                        <button onclick="calcularPromedio()">Calcular Promedio</button>
+                    </div>
+                    
+                    <!-- Función 4: Conversión de unidades -->
+                    <div class="input-group">
+                        <label>4. Conversión de unidades (metros)</label>
+                        <input type="number" id="metros" placeholder="Valor en metros">
+                        <button onclick="convertirUnidades()">Convertir</button>
+                    </div>
+                    
+                    <!-- Función 5: Comparación de dos valores -->
+                    <div class="input-group">
+                        <label>5. Comparación de dos valores</label>
+                        <input type="number" id="numero1" placeholder="Número 1">
+                        <input type="number" id="numero2" placeholder="Número 2">
+                        <button onclick="compararValores()">Comparar</button>
+                    </div>
+                </div>
+                
+                <!-- Botones adicionales -->
+                <div class="buttons">
+                    <button onclick="limpiarEntradas()">Limpiar Entradas</button>
+                    <button onclick="limpiarResultados()">Limpiar Resultados</button>
+                </div>
+            </div>
+            
+            <!-- Panel de resultados -->
+            <div class="result-panel">
+                <div class="result-title">RESULTADOS</div>
+                <div class="result-content" id="resultados"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
