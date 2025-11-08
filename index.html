@@ -24,42 +24,57 @@
             <div class="function-panel">
                 <div class="function-title">FUNCIONES</div>
                 
-                <!-- Función 1: Suma de tres valores -->
                 <div class="function-inputs">
+                    <!-- Función 1: Suma de tres valores -->
                     <div class="input-group">
-                        <label>1. Suma de tres valores constantes</label>
+                        <h3>1. Suma de tres valores constantes</h3>
+                        <div class="input-data" id="constantesData">
+                            Valores constantes: 15, 22, 7
+                        </div>
                         <button onclick="sumarTresValores()">Calcular Suma</button>
                     </div>
                     
                     <!-- Función 2: Cuadrado de un número -->
                     <div class="input-group">
-                        <label>2. Cuadrado de un número</label>
+                        <h3>2. Cuadrado de un número</h3>
+                        <label for="numeroCuadrado">Número:</label>
                         <input type="number" id="numeroCuadrado" placeholder="Ingrese un número">
+                        <div class="input-data" id="cuadradoData"></div>
                         <button onclick="calcularCuadrado()">Calcular Cuadrado</button>
                     </div>
                     
                     <!-- Función 3: Promedio de calificaciones -->
                     <div class="input-group">
-                        <label>3. Promedio de calificaciones</label>
+                        <h3>3. Promedio de calificaciones</h3>
+                        <label for="nombreEstudiante">Nombre del estudiante:</label>
                         <input type="text" id="nombreEstudiante" placeholder="Nombre del estudiante">
+                        <label for="calificacion1">Calificación 1:</label>
                         <input type="number" id="calificacion1" placeholder="Calificación 1" step="0.01">
+                        <label for="calificacion2">Calificación 2:</label>
                         <input type="number" id="calificacion2" placeholder="Calificación 2" step="0.01">
+                        <label for="calificacion3">Calificación 3:</label>
                         <input type="number" id="calificacion3" placeholder="Calificación 3" step="0.01">
+                        <div class="input-data" id="promedioData"></div>
                         <button onclick="calcularPromedio()">Calcular Promedio</button>
                     </div>
                     
                     <!-- Función 4: Conversión de unidades -->
                     <div class="input-group">
-                        <label>4. Conversión de unidades (metros)</label>
+                        <h3>4. Conversión de unidades (metros)</h3>
+                        <label for="metros">Valor en metros:</label>
                         <input type="number" id="metros" placeholder="Valor en metros">
+                        <div class="input-data" id="conversionData"></div>
                         <button onclick="convertirUnidades()">Convertir</button>
                     </div>
                     
                     <!-- Función 5: Comparación de dos valores -->
                     <div class="input-group">
-                        <label>5. Comparación de dos valores</label>
+                        <h3>5. Comparación de dos valores</h3>
+                        <label for="numero1">Número 1:</label>
                         <input type="number" id="numero1" placeholder="Número 1">
+                        <label for="numero2">Número 2:</label>
                         <input type="number" id="numero2" placeholder="Número 2">
+                        <div class="input-data" id="comparacionData"></div>
                         <button onclick="compararValores()">Comparar</button>
                     </div>
                 </div>
@@ -78,6 +93,81 @@
             </div>
         </div>
     </div>
+
+    <!-- Auto que se ejecuta automáticamente al cargar la página -->
+    <script>
+        // Función que se ejecuta automáticamente al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Calculadora científica cargada correctamente');
+            console.log('Desarrollado por: [Tu Nombre]');
+            console.log('Materia: Programación WEB III (2229)');
+            console.log('Ing. Alonso González');
+            
+            // Mostrar mensaje de bienvenida en los resultados
+            const resultadosDiv = document.getElementById('resultados');
+            const bienvenida = document.createElement('div');
+            bienvenida.className = 'result-item';
+            bienvenida.innerHTML = '<div class="operation-title">¡Bienvenido a la Calculadora Científica!</div><div class="input-data">Seleccione una función y complete los datos requeridos</div>';
+            resultadosDiv.appendChild(bienvenida);
+            
+            // Inicializar datos de entrada
+            actualizarDatosEntrada();
+        });
+        
+        // Función para actualizar los datos de entrada mostrados
+        function actualizarDatosEntrada() {
+            // Función 1 - Datos constantes
+            document.getElementById('constantesData').textContent = 'Valores constantes: 15, 22, 7';
+            
+            // Función 2 - Datos del cuadrado
+            const numCuadrado = document.getElementById('numeroCuadrado').value;
+            document.getElementById('cuadradoData').textContent = numCuadrado ? `Número ingresado: ${numCuadrado}` : 'Esperando número...';
+            
+            // Función 3 - Datos del promedio
+            const nombre = document.getElementById('nombreEstudiante').value;
+            const cal1 = document.getElementById('calificacion1').value;
+            const cal2 = document.getElementById('calificacion2').value;
+            const cal3 = document.getElementById('calificacion3').value;
+            
+            if (nombre || cal1 || cal2 || cal3) {
+                let datos = '';
+                if (nombre) datos += `Estudiante: ${nombre}`;
+                if (cal1) datos += (datos ? ' | ' : '') + `Calif.1: ${cal1}`;
+                if (cal2) datos += (datos ? ' | ' : '') + `Calif.2: ${cal2}`;
+                if (cal3) datos += (datos ? ' | ' : '') + `Calif.3: ${cal3}`;
+                document.getElementById('promedioData').textContent = datos;
+            } else {
+                document.getElementById('promedioData').textContent = 'Esperando datos del estudiante...';
+            }
+            
+            // Función 4 - Datos de conversión
+            const metros = document.getElementById('metros').value;
+            document.getElementById('conversionData').textContent = metros ? `Metros ingresados: ${metros}` : 'Esperando valor en metros...';
+            
+            // Función 5 - Datos de comparación
+            const num1 = document.getElementById('numero1').value;
+            const num2 = document.getElementById('numero2').value;
+            
+            if (num1 || num2) {
+                let datos = '';
+                if (num1) datos += `Número 1: ${num1}`;
+                if (num2) datos += (datos ? ' | ' : '') + `Número 2: ${num2}`;
+                document.getElementById('comparacionData').textContent = datos;
+            } else {
+                document.getElementById('comparacionData').textContent = 'Esperando números para comparar...';
+            }
+        }
+        
+        // Event listeners para actualizar datos en tiempo real
+        document.getElementById('numeroCuadrado').addEventListener('input', actualizarDatosEntrada);
+        document.getElementById('nombreEstudiante').addEventListener('input', actualizarDatosEntrada);
+        document.getElementById('calificacion1').addEventListener('input', actualizarDatosEntrada);
+        document.getElementById('calificacion2').addEventListener('input', actualizarDatosEntrada);
+        document.getElementById('calificacion3').addEventListener('input', actualizarDatosEntrada);
+        document.getElementById('metros').addEventListener('input', actualizarDatosEntrada);
+        document.getElementById('numero1').addEventListener('input', actualizarDatosEntrada);
+        document.getElementById('numero2').addEventListener('input', actualizarDatosEntrada);
+    </script>
 
     <script src="script.js"></script>
 </body>
