@@ -18,7 +18,7 @@ body {
 /* Contenedor principal */
 .calculator-container {
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
     background-color: #d9e1e2;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -64,11 +64,11 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 15px;
     padding: 15px;
-    height: 500px;
+    height: 600px;
 }
 
-/* Panel de funciones */
-.function-panel {
+/* Panel de teclado */
+.keyboard-panel {
     background-color: #c0c8c9;
     border-radius: 5px;
     padding: 15px;
@@ -79,74 +79,99 @@ body {
 
 .function-title {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: #2c3e50;
     text-align: center;
     font-size: 16px;
 }
 
-.function-inputs {
-    flex: 1;
-    overflow-y: auto;
-    padding-right: 5px;
-}
-
-.input-group {
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #e6e9ea;
-    border-radius: 5px;
-    border: 1px solid #bdc3c7;
-}
-
-.input-group h3 {
-    color: #2c3e50;
-    margin-bottom: 8px;
-    font-size: 14px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 12px;
-    color: #2c3e50;
-}
-
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    padding: 6px;
-    border: 1px solid #95a5a6;
-    border-radius: 3px;
-    font-size: 12px;
-    margin-bottom: 5px;
-}
-
-/* Botones */
-.buttons {
+/* Grid del teclado */
+.keyboard-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 10px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+    flex: 1;
 }
 
-button {
+/* Botones numéricos */
+.num-btn {
     background-color: #2c3e50;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 8px;
+    padding: 12px 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.num-btn:hover {
+    background-color: #34495e;
+}
+
+.num-btn:active {
+    background-color: #1a252f;
+}
+
+/* Botones de funciones */
+.func-btn {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 5px;
     font-size: 12px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-button:hover {
-    background-color: #34495e;
+.func-btn:hover {
+    background-color: #d35400;
 }
 
-button:active {
-    background-color: #1a252f;
+.func-btn:active {
+    background-color: #a84300;
+}
+
+/* Entrada manual */
+.manual-input {
+    background-color: #e6e9ea;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+}
+
+.manual-input label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.manual-input input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #95a5a6;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.manual-input button {
+    width: 100%;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.manual-input button:hover {
+    background-color: #219653;
 }
 
 /* Panel de resultados */
@@ -175,6 +200,7 @@ button:active {
     padding: 10px;
     font-size: 14px;
     overflow-y: auto;
+    margin-bottom: 15px;
 }
 
 .result-item {
@@ -193,38 +219,73 @@ button:active {
     font-weight: bold;
     color: #2c3e50;
     margin-bottom: 5px;
+    font-size: 12px;
 }
 
 .input-data {
-    font-size: 12px;
+    font-size: 11px;
     color: #7f8c8d;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    font-family: 'Courier New', monospace;
 }
 
 .result-data {
     font-weight: bold;
     color: #27ae60;
+    font-size: 13px;
+}
+
+/* Información de uso */
+.usage-info {
+    background-color: #d5dbdb;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #a6acaf;
+}
+
+.usage-info h4 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.usage-info ul {
+    font-size: 11px;
+    color: #2c3e50;
+    padding-left: 15px;
+}
+
+.usage-info li {
+    margin-bottom: 3px;
 }
 
 /* Barra de desplazamiento personalizada */
-.function-inputs::-webkit-scrollbar,
 .result-content::-webkit-scrollbar {
     width: 8px;
 }
 
-.function-inputs::-webkit-scrollbar-track,
 .result-content::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 4px;
 }
 
-.function-inputs::-webkit-scrollbar-thumb,
 .result-content::-webkit-scrollbar-thumb {
     background: #2c3e50;
     border-radius: 4px;
 }
 
-.function-inputs::-webkit-scrollbar-thumb:hover,
 .result-content::-webkit-scrollbar-thumb:hover {
     background: #34495e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .controls {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .keyboard-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
