@@ -1,0 +1,169 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.calculator-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #d9e1e2;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border: 2px solid #2c3e50;
+}
+
+/* Encabezado estilo Casio */
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.model {
+    font-size: 14px;
+    color: #ecf0f1;
+}
+
+/* Pantalla de resultados */
+.display {
+    background-color: #a3b86c;
+    padding: 15px;
+    text-align: right;
+    font-family: 'Courier New', monospace;
+    font-size: 24px;
+    min-height: 80px;
+    border-bottom: 2px solid #2c3e50;
+    overflow-wrap: break-word;
+}
+
+/* Controles de la calculadora */
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+}
+
+/* Panel de funciones */
+.function-panel {
+    background-color: #c0c8c9;
+    border-radius: 5px;
+    padding: 15px;
+    border: 1px solid #95a5a6;
+}
+
+.function-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    text-align: center;
+    font-size: 16px;
+}
+
+.function-inputs {
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #95a5a6;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+/* Botones */
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+button {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #34495e;
+}
+
+button:active {
+    background-color: #1a252f;
+}
+
+/* Panel de resultados */
+.result-panel {
+    background-color: #e6e9ea;
+    border-radius: 5px;
+    padding: 15px;
+    border: 1px solid #95a5a6;
+}
+
+.result-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    text-align: center;
+    font-size: 16px;
+}
+
+.result-content {
+    min-height: 150px;
+    background-color: white;
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 14px;
+    overflow-y: auto;
+}
+
+.result-item {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #bdc3c7;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
