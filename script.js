@@ -6,7 +6,8 @@ const VALOR3 = 7;
 // Función 1: Suma de tres valores constantes
 function sumarTresValores() {
     const suma = VALOR1 + VALOR2 + VALOR3;
-    mostrarResultado(`La suma de los valores constantes (${VALOR1}, ${VALOR2}, ${VALOR3}) es: ${suma}`);
+    const mensaje = `La suma de los valores constantes (${VALOR1}, ${VALOR2}, ${VALOR3}) es: ${suma}`;
+    mostrarResultado('Suma de Tres Valores', `Valores constantes: ${VALOR1}, ${VALOR2}, ${VALOR3}`, mensaje);
     actualizarDisplay(suma);
 }
 
@@ -20,7 +21,8 @@ function calcularCuadrado() {
     }
     
     const cuadrado = numero * numero;
-    mostrarResultado(`El cuadrado de ${numero} es: ${cuadrado}`);
+    const mensaje = `El cuadrado de ${numero} es: ${cuadrado}`;
+    mostrarResultado('Cuadrado de un Número', `Número ingresado: ${numero}`, mensaje);
     actualizarDisplay(cuadrado);
 }
 
@@ -37,7 +39,9 @@ function calcularPromedio() {
     }
     
     const promedio = (cal1 + cal2 + cal3) / 3;
-    mostrarResultado(`El promedio de ${nombre} es: ${promedio.toFixed(2)} puntos`);
+    const mensaje = `El promedio de ${nombre} es: ${promedio.toFixed(2)} puntos`;
+    const datosEntrada = `Estudiante: ${nombre} | Calificaciones: ${cal1}, ${cal2}, ${cal3}`;
+    mostrarResultado('Promedio de Calificaciones', datosEntrada, mensaje);
     actualizarDisplay(promedio.toFixed(2));
 }
 
@@ -52,8 +56,8 @@ function convertirUnidades() {
     
     const centimetros = metros * 100;
     const kilometros = metros / 1000;
-    
-    mostrarResultado(`${metros} metros equivalen a ${centimetros.toLocaleString()} centímetros y ${kilometros} kilómetros.`);
+    const mensaje = `${metros} metros equivalen a ${centimetros.toLocaleString()} centímetros y ${kilometros} kilómetros.`;
+    mostrarResultado('Conversión de Unidades', `Metros ingresados: ${metros}`, mensaje);
     actualizarDisplay(metros);
 }
 
@@ -82,16 +86,22 @@ function compararValores() {
     }
     
     const diferencia = mayor - menor;
-    mostrarResultado(`El número mayor es ${mayor}, el menor es ${menor}, y su diferencia es ${diferencia}.`);
+    const mensaje = `El número mayor es ${mayor}, el menor es ${menor}, y su diferencia es ${diferencia}.`;
+    const datosEntrada = `Números comparados: ${num1} y ${num2}`;
+    mostrarResultado('Comparación de Valores', datosEntrada, mensaje);
     actualizarDisplay(mayor);
 }
 
 // Función para mostrar resultados en el panel de resultados
-function mostrarResultado(mensaje) {
+function mostrarResultado(operacion, datos, resultado) {
     const resultadosDiv = document.getElementById('resultados');
     const nuevoResultado = document.createElement('div');
     nuevoResultado.className = 'result-item';
-    nuevoResultado.textContent = mensaje;
+    nuevoResultado.innerHTML = `
+        <div class="operation-title">${operacion}</div>
+        <div class="input-data">Datos: ${datos}</div>
+        <div class="result-data">Resultado: ${resultado}</div>
+    `;
     resultadosDiv.appendChild(nuevoResultado);
     resultadosDiv.scrollTop = resultadosDiv.scrollHeight;
 }
@@ -112,10 +122,18 @@ function limpiarEntradas() {
     document.getElementById('numero1').value = '';
     document.getElementById('numero2').value = '';
     actualizarDisplay('0');
+    actualizarDatosEntrada();
 }
 
 // Función para limpiar los resultados
 function limpiarResultados() {
     document.getElementById('resultados').innerHTML = '';
     actualizarDisplay('0');
+    
+    // Agregar mensaje de bienvenida nuevamente
+    const resultadosDiv = document.getElementById('resultados');
+    const bienvenida = document.createElement('div');
+    bienvenida.className = 'result-item';
+    bienvenida.innerHTML = '<div class="operation-title">¡Bienvenido a la Calculadora Científica!</div><div class="input-data">Seleccione una función y complete los datos requeridos</div>';
+    resultadosDiv.appendChild(bienvenida);
 }
